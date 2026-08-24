@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head lang="it">
+    <meta charset="UTF-8">
+    <!--Page Title-->
+    <title>Hack-Oeil - I CTF di Cyrhades</title>
+    <!--Meta Keywords and Description-->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" title="Favicon" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script src="./assets/js/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Verifica se la finestra è all'interno di un iframe
+            if (window.self !== window.top) {
+                document.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', (event) => {
+                        const a = event.target.closest('a[href^="http"]');
+                        if (a) {
+                            event.preventDefault();
+                            window.parent.postMessage({
+                                type: "open-external",
+                                url: a.href
+                            }, "*");
+                        }
+                    });
+                });
+            }
+            // Attiva l'evidenziazione della sintassi :
+            if (window.hljs) {
+                hljs.highlightAll();
+            } else {
+                console.error("Highlight.js non caricato!");
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <!--Main Content Area-->
+        <main id="content">
+            <!--Ctf-->
+            <section class="ctf scrollto">
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Sfida #546</h3>
+                            <h2 class="section-title">Baby XDP</h2>
+                            <p>
+Ma dove sono finiti i miei pacchetti di rete?
+<br /><br />
+In questa sfida vi proponiamo di giocare con XDP.
+<br /><br />
+Un attaccante ha creato un canale di comunicazione discreto tra una macchina infetta e la rete. Riuscirai a trovare il contenuto dei pacchetti ricevuti sull'interfaccia di rete? tcpdump non sembra funzionare…
+<br /><br />
+<strong>Note:</strong>
+<br /><br />
+- Per disporre di un <code>Ctrl-c</code> funzionante, è possibile utilizzare <code>stty -cooked -echo</code> sul terminale dopo aver messo in background la connessione alla challenge effettuata con <code>nc</code>.
+- Per riprodurre la sfida localmente: Decomprimere l'archivio con <code>tar xf babyxdp.tar.xz</code>. Avviare il container Docker con <code>docker compose up --build</code>. Connettersi alla sfida locale con <code>nc localhost 4000</code>.
+- Per connettersi alla macchina, utilizzare la password "user"
+                            </p>
+                            <h4>File da esaminare:</h4>
+                            <p>../files/babyxdp.tar.xz</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>FCSC 2025</h3>
+                            <h2 class="section-title">Hackropole</h2>
+                            <p class="section-subtitle">
+                                Link ufficiale:
+                                <a target="_blank" href="https://hackropole.fr/fr/challenges/misc/fcsc2025-misc-baby-xdp/">https://hackropole.fr/fr/challenges/misc/fcsc2025-misc-baby-xdp/</a>
+                                <br />
+                                Autore: gte
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Apprendimento</h3>
+                            <h2 class="section-title">Documentazione e Video</h2>
+                            <p class="section-subtitle">
+                                Nessuna documentazione al momento
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Aiuto</h3>
+                            <h2 class="section-title">Consigli e indizi</h2>
+                            <p class="section-subtitle">
+                                <a target="_blank"
+                                    href="https://discord.com/channels/1175764392307077120/1175764601716092948">Thread su Discord</a>
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <!--End of Ctf-->
+        </main>
+        <!--End Main Content Area-->
+
+        <a id="scrollUp" href="#wrapper" style="position: fixed; z-index: 1000;"
+            aria-label="Torna all'inizio della pagina" title="Torna all'inizio della pagina"></a>
+    </div>
+</body>
+
+</html>
